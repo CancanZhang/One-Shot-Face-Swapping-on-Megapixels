@@ -181,8 +181,8 @@ class MegaFS(object):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--swap_type", type=str, default="ftm")
-    parser.add_argument("--img_root", type=str, default="/data/yuhao.zhu/CelebA-HQ")
-    parser.add_argument("--mask_root", type=str, default="/data/yuhao.zhu/CelebAMaskHQ-mask")
+    parser.add_argument("--img_root", type=str, default="/data/CelebA-HQ/CelebA-HQ-img")
+    parser.add_argument("--mask_root", type=str, default="/data/CelebA-HQ/CelebAMask-HQ-mask-anno")
     parser.add_argument("--srcID", type=int, default=2332)
     parser.add_argument("--tgtID", type=int, default=2107)
 
