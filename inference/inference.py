@@ -140,6 +140,8 @@ class MegaFS(object):
             att_lats = lats[0].unsqueeze_(0)
             att_struct = struct[0].unsqueeze_(0)
 
+            print ('idd_lats', idd_lats.size())
+            print ('att_lats', att_lats.size())
             swapped_lats = self.swapper(idd_lats, att_lats)
             fake_swap, _ = self.generator(att_struct, [swapped_lats, None], randomize_noise=False)
 
@@ -181,8 +183,8 @@ class MegaFS(object):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--swap_type", type=str, default="ftm")
-    parser.add_argument("--img_root", type=str, default="/data/CelebA-HQ/CelebA-HQ-img")
-    parser.add_argument("--mask_root", type=str, default="/data/CelebA-HQ/CelebAMask-HQ-mask-anno")
+    parser.add_argument("--img_root", type=str, default="../data/CelebA-HQ/CelebA-HQ-img")
+    parser.add_argument("--mask_root", type=str, default="../data/CelebA-HQ/mask")
     parser.add_argument("--srcID", type=int, default=2332)
     parser.add_argument("--tgtID", type=int, default=2107)
 

@@ -335,8 +335,10 @@ class TransferCell(nn.Module):
 
 
     def forward(self, idd, att):
+        print ('idd, att', idd.size(), att.size())
         for i in range(self.num_blocks):
             fuse = torch.cat([idd, att], dim=1)
+            print ('fuse',fuse.size())
             idd = self.act(idd * self.idd_selectors[i](fuse) + self.idd_shifters[i](fuse))
             att = self.act(att * self.att_selectors[i](fuse) + self.att_shifters[i](fuse))
         return idd.unsqueeze(1), att.unsqueeze(1)
